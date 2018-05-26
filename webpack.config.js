@@ -20,19 +20,18 @@ config.context = src;
 
 
 // Entry.
-config.entry = ['./styles/index.scss', './scripts/index.js'];
+config.entry = ['./styles/index.scss', './index.js'];
 
 
 // Rules.
 config.module.rules = [{
-    test: /\.js$/,
+    test: /\.(js|jsx)$/,
     exclude: exclude,
-    loader: 'babel-loader',
-    query: { presets: ["env"] }
+    use: 'babel-loader',
 }, {
     test: /\.(scss)$/,
-    loader: extract({
-        loader: 'css-loader!postcss-loader!sass-loader'
+    use: extract({
+        use: 'css-loader!postcss-loader!sass-loader'
     }),
 }];
 
