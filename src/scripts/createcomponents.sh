@@ -58,3 +58,5 @@ __EOF
 else
  echo " => Component already exists, rename and re-run the scripts"
 fi
+
+git add $components_Directory/
