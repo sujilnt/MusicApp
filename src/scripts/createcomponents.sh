@@ -16,7 +16,7 @@ then
   cat > $components_Directory/$component_Name.js <<__EOF
 import React, { Component } from 'react';
 import styles from "./$component_Name.css";
-const FUNCTION_NAME = (props) => <div>{props.children}</div>;
+const FUNCTION_NAME = (props) => <div className="container">{props.children}</div>;
 export default FUNCTION_NAME;
 __EOF
   echo "stateless react code created !!"
@@ -37,7 +37,7 @@ class $component_Name extends Component {
    render() {
      console.log("%c $ComponentName Component -> Render ", "background:black; color: pink");
      return (
-         <div className="relative">
+         <div className="container">
            This is {this.state.name} Component
          </div>
      );
@@ -49,8 +49,8 @@ export default $component_Name;
 __EOF
   echo "stateful React component created !!"
   fi
-  cat > $components_Directory/$component_Name.css<< __EOF
-.relative{
+  cat > $components_Directory/$component_Name.scss<< __EOF
+.container{
    position:relative;
 }
 __EOF
