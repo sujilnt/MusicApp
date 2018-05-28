@@ -22,6 +22,9 @@ To create stateless React component
 # To create statefull React component  
 
 `sh createcomponent.sh TextField `  
+
+
+Automatically once  a component is created,component is automatically added to working tree, no need to manually add this component. you just need to commit it . 
   
 # server running 
 http://localhost:8080/
