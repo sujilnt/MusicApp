@@ -7,31 +7,46 @@ class PlayerComponent extends Component {
         this.pageTitle = "PlayerComponent";
         this.play=this.play.bind(this);
         this.state = {
-            name: "PlayerComponent"
+            name: "PlayerComponent",
+            playMode: "play-circle"
         };
 
         console.log("%c  Component -> Init ", "background:red; color: white");
         }
     play(e){
         e.preventDefault();
-        console.log('The link was clicked.');
+        if(this.state.playMode==="play-circle"){
+            this.setState({
+                playMode:"pause-circle"
+            });
+            this.refs.audioPlayer.play();
+        } else {
+            this.setState({
+                playMode:"play-circle"
+            });
+            this.refs.audioPlayer.pause();
+        }
     }
    render() {
      console.log("%c  Component -> Render ", "background:black; color: pink");
      return (
          <div className="AudioContainer">
-             <FontAwesomeIcon icon="check-square" spin />
-             <button className="background-Icon" onClick={this.play} refs="plays">testclick</button>
              <div className="controls">
-                 <div className="background-Icon"  refs="plays">
-                    <FontAwesomeIcon icon="play-circle"  size="2x" className="marginFont" />
+                 <div className="background-Icon" >
+                     <FontAwesomeIcon icon="fast-forward" size="2x" rotation={180} className="marginFont" />
+                 </div>
+                 <div className="background-Icon"  refs="plays" onClick={this.play} refs="plays">
+                    <FontAwesomeIcon icon={this.state.playMode}  size="2x" className="marginFont" />
                  </div>
                  <div className="background-Icon">
                     <FontAwesomeIcon icon="fast-forward" size="2x" className="marginFont" />
                  </div>
-                 <div className="background-Icon">
-                    <FontAwesomeIcon icon="fast-forward" size="2x" rotation={180} className="marginFont" />
+                 <div className="progress">
+                     <div className="bar"></div>
                  </div>
+                 <audio ref="audioPlayer">
+                     <source src="../../src/audioFiles/Inception 2010.mp3"/>
+                 </audio>
              </div>
          </div>
      );

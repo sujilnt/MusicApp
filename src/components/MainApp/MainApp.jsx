@@ -1,5 +1,6 @@
 import React ,{Component} from 'react' ;
-import Player from "../PlayerComponent/PlayerComponent.js"
+import Player from "../PlayerComponent/PlayerComponent.js";
+import "../commonCssStyles/browserReset.scss";
 import './MainApp.scss';
 
 class MainApp extends Component {
@@ -7,7 +8,6 @@ class MainApp extends Component {
         return(
             <div className="mainContainer">
                 <Player/>
-                <h1 className="h1style">Hello React :) </h1>
             </div>
         );
     }

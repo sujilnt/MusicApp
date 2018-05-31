@@ -1,6 +1,9 @@
 .container {
   position: relative; }
 
+.AudioContainer {
+  display: flex; }
+
 .controls {
   background: tomato;
   height: 50px;
@@ -15,5 +18,16 @@
 
 .background-Icon > .marginFont:hover path:hover {
   fill: yellow; }
+
+.progress {
+  background: #FFC107;
+  width: 100%;
+  height: 18px;
+  padding: 5px; }
+
+.bar {
+  width: 100px;
+  height: 18px;
+  background: steelblue; }
 
 /*# sourceMappingURL=PlayerComponent.css.map */
