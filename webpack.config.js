@@ -20,7 +20,7 @@ config.context = src;
 
 
 // Entry.
-config.entry = ['./styles/index.scss', './index.js'];
+config.entry = ['./components/commonCssStyles/index.scss', './index.js'];
 
 
 // Rules.

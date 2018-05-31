@@ -15,7 +15,7 @@ then
    echo "creating stateless React component !!"
   cat > $components_Directory/$component_Name.js <<__EOF
 import React, { Component } from 'react';
-import styles from "./$component_Name.css";
+import styles from "./$component_Name.scss";
 const FUNCTION_NAME = (props) => <div className="container">{props.children}</div>;
 export default FUNCTION_NAME;
 __EOF
