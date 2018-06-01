@@ -23,10 +23,11 @@
   background: #FFC107;
   width: 100%;
   height: 18px;
-  padding: 5px; }
+  padding: 5px;
+  cursor: pointer; }
 
 .bar {
-  width: 100px;
+  width: 10px;
   height: 18px;
   background: steelblue; }
 
