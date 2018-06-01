@@ -13,20 +13,28 @@ class PlayerComponent extends PureComponent {
         this.state = {
             name: "PlayerComponent",
             playModeIcon: "play-circle",
-            progressBar: "0.1"
+            progressBar: "0.0",
+            progressManualUpdate: "true"
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
+    }
+    componentDidMount() {
+        let refaudioPlayer=this.refs.audioPlayer;
+        refaudioPlayer.addEventListener('timeupdate', (event) => {
+            if(this.state.progressManualUpdate){
+                this.setState({
+                    progressBar: (event.target.currentTime) / event.target.duration,
+                });
+            }
+            console.log(this.state.progressBar);
+        });
     }
 
     playPauseToggele(e){
         e.preventDefault();
-        const refaudioPlayer=this.refs.audioPlayer;
-        if(this.state.playModeIcon==="play-circle"){
-            refaudioPlayer.addEventListener('timeupdate', (event,e)=>{
-                this.setState({
-                    progressBar: (event.target.currentTime)/100,
-                    playModeIcon:"pause-circle"
-                });
+        if(this.state.playModeIcon === "play-circle"){
+            this.setState({
+                playModeIcon:"pause-circle"
             });
             this.refs.audioPlayer.play();
         } else {
@@ -35,6 +43,7 @@ class PlayerComponent extends PureComponent {
             });
             this.refs.audioPlayer.pause();
 
+
         }
     }
 
@@ -42,28 +51,30 @@ class PlayerComponent extends PureComponent {
         const progressBarRef=this.progressBar;
         const audipPlayer = this.refs.audioPlayer;
         let progress=(e.clientX - offsetLeft(progressBarRef)) / progressBarRef.clientWidth;
+        let currentTime= audipPlayer.currentTime = audipPlayer.duration * progress;
         this.setState({
-            progressBar:progress
-        });
+            progressBar:currentTime,
+            progressManualUpdate: "false"
 
-        audipPlayer.currentTime = audipPlayer.duration * this.state.progressBar;
+        });
+        console.log("all I dont bro ......", this.state.progressBar, audipPlayer.currentTime)
     }
    render() {
      console.log("%c  Component -> Render ", "background:black; color: pink");
      return (
          <div className="AudioContainer">
-             <div className="controls">
-                 <div className="background-Icon" >
+             <div className="controls" aria-hidden="true" >
+                 <div className="background-Icon" aria-hidden="true">
                      <FontAwesomeIcon icon="fast-forward" size="2x" rotation={180} className="marginFont" />
                  </div>
-                 <div className="background-Icon"  refs="plays" onClick={this.playPauseToggele} ref="plays">
+                 <div className="background-Icon"  refs="plays" onClick={this.playPauseToggele} ref="plays" aria-hidden="true">
                     <FontAwesomeIcon icon={this.state.playModeIcon}  size="2x" className="marginFont" />
                  </div>
-                 <div className="background-Icon">
-                    <FontAwesomeIcon icon="fast-forward" size="2x" className="marginFont" />
+                 <div className="background-Icon" aria-hidden="true">
+                    <FontAwesomeIcon icon="fast-forward" size="2x" className="marginFont" aria-hidden="true" />
                  </div>
-                 <div className="progress" onClick={this.handleProgress} ref={(ref) => { this.progressBar = ref}}>
-                     <div className="bar"  style={{width: (this.state.progressBar*100)+"%"}} ></div>
+                 <div className="progress" onClick={this.handleProgress} ref={(ref) => { this.progressBar = ref}} aria-hidden="true">
+                     <div className="bar"  style={{width: (this.state.progressBar*100)+"%"}} aria-hidden="true"></div>
                  </div>
                  <audio ref="audioPlayer">
                      <source src="../../src/audioFiles/Linkin Park - In The End.mp3"/>
@@ -75,7 +86,7 @@ class PlayerComponent extends PureComponent {
 }
 function offsetLeft(ele){
     var leftpos=0;
-    while(ele && ele!== document){
+    while(ele && ele !== document){
         leftpos+= ele.offsetLeft;
         ele=ele.offsetparent;
     }
