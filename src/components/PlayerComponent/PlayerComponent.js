@@ -3,7 +3,6 @@ import React, {PureComponent} from "react";
 import styles from "./PlayerComponent.scss";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-
 class PlayerComponent extends PureComponent {
     constructor(props, context) {
         super(props, context);
@@ -26,7 +25,6 @@ class PlayerComponent extends PureComponent {
                     progressBar: (event.target.currentTime) / event.target.duration,
                 });
             }
-            console.log(this.state.progressBar);
         });
     }
 
@@ -55,9 +53,7 @@ class PlayerComponent extends PureComponent {
         this.setState({
             progressBar:currentTime,
             progressManualUpdate: "false"
-
         });
-        console.log("all I dont bro ......", this.state.progressBar, audipPlayer.currentTime)
     }
    render() {
      console.log("%c  Component -> Render ", "background:black; color: pink");
