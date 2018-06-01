@@ -1,10 +1,10 @@
 'use strict';
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import styles from "./PlayerComponent.scss";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 
-class PlayerComponent extends Component {
+class PlayerComponent extends PureComponent {
     constructor(props, context) {
         super(props, context);
         this.pageTitle = "PlayerComponent";
@@ -17,11 +17,16 @@ class PlayerComponent extends Component {
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
     }
+
     playPauseToggele(e){
         e.preventDefault();
+        const refaudioPlayer=this.refs.audioPlayer;
         if(this.state.playModeIcon==="play-circle"){
-            this.setState({
-                playModeIcon:"pause-circle"
+            refaudioPlayer.addEventListener('timeupdate', (event,e)=>{
+                this.setState({
+                    progressBar: (event.target.currentTime)/100,
+                    playModeIcon:"pause-circle"
+                });
             });
             this.refs.audioPlayer.play();
         } else {
