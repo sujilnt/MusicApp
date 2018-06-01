@@ -6,7 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 class PlayerComponent extends PureComponent {
     constructor(props, context) {
         super(props, context);
-        this.pageTitle = "PlayerComponent";
+        this.pageTitle="PlayerComponent";
         this.playPauseToggele=this.playPauseToggele.bind(this);
         this.handleProgress=this.handleProgress.bind(this);
         this.state = {
@@ -40,8 +40,6 @@ class PlayerComponent extends PureComponent {
                 playModeIcon:"play-circle"
             });
             this.refs.audioPlayer.pause();
-
-
         }
     }
 
@@ -71,6 +69,10 @@ class PlayerComponent extends PureComponent {
                  </div>
                  <div className="progress" onClick={this.handleProgress} ref={(ref) => { this.progressBar = ref}} aria-hidden="true">
                      <div className="bar"  style={{width: (this.state.progressBar*100)+"%"}} aria-hidden="true"></div>
+                 </div>
+                 <div className="volume">
+                     <FontAwesomeIcon icon="volume-down" size="2x"  className="marginFont" />
+                     {/* <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>*/}
                  </div>
                  <audio ref="audioPlayer">
                      <source src="../../src/audioFiles/Linkin Park - In The End.mp3"/>

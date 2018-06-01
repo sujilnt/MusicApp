@@ -10,8 +10,10 @@ import brands from '@fortawesome/fontawesome-free-brands';
 import faPlayCircle from '@fortawesome/fontawesome-free-solid/faPlayCircle';
 import faPauseCircle from '@fortawesome/fontawesome-free-solid/faPauseCircle';
 import faFastForward from '@fortawesome/fontawesome-free-solid/faFastForward';
+import faVolumeDown from '@fortawesome/fontawesome-free-solid/faVolumeDown';
 
 
 
-fontawesome.library.add(brands, faPlayCircle,faFastForward,faPauseCircle);
+
+fontawesome.library.add(brands, faPlayCircle,faFastForward,faPauseCircle,faVolumeDown);
 ReactDom.render(<MainApp />, document.getElementById('react-root'));
