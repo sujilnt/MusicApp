@@ -2,7 +2,6 @@
 import React, {PureComponent} from "react";
 import styles from "./PlayerComponent.scss";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import InputRangeSlider from "../inputRangeSlider/inputRangeSlider.js";
 import "../commonCssStyles/index.scss";
 import Slider from "react-rangeslider";
 class PlayerComponent extends PureComponent {
