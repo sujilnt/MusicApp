@@ -1,6 +1,4 @@
-let a ="successful ";
-console.log("adding a change",a );
-
+'use strict';
 import React from 'react';
 import ReactDom from 'react-dom';
 import MainApp from './components/MainApp/MainApp.jsx';

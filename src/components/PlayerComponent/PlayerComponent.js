@@ -1,19 +1,23 @@
 'use strict';
 import React, {PureComponent} from "react";
 import styles from "./PlayerComponent.scss";
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import InputRangeSlider from "../inputRangeSlider/inputRangeSlider.js";
+import "../commonCssStyles/index.scss";
+import Slider from "react-rangeslider";
 class PlayerComponent extends PureComponent {
     constructor(props, context) {
         super(props, context);
         this.pageTitle="PlayerComponent";
         this.playPauseToggele=this.playPauseToggele.bind(this);
         this.handleProgress=this.handleProgress.bind(this);
+        this.handleChangeSlider=this.handleChangeSlider.bind(this);
         this.state = {
             name: "PlayerComponent",
             playModeIcon: "play-circle",
             progressBar: "0.0",
-            progressManualUpdate: "true"
+            progressManualUpdate: "true",
+            Slidervalue: 5,
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
     }
@@ -26,6 +30,14 @@ class PlayerComponent extends PureComponent {
                 });
             }
         });
+    }
+    handleChangeSlider (value){
+        this.setState({
+            Slidervalue: value
+        });
+        console.log(value,this.state.Slidervalue/10, this.state.Slidervalue, typeof(value) );
+        this.refs.audioPlayer.volume= this.state.Slidervalue/10;
+
     }
 
     playPauseToggele(e){
@@ -54,6 +66,7 @@ class PlayerComponent extends PureComponent {
         });
     }
    render() {
+     const {Slidervalue}= this.state ;
      console.log("%c  Component -> Render ", "background:black; color: pink");
      return (
          <div className="AudioContainer">
@@ -72,7 +85,15 @@ class PlayerComponent extends PureComponent {
                  </div>
                  <div className="volume">
                      <FontAwesomeIcon icon="volume-down" size="2x"  className="marginFont" />
-                     {/* <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>*/}
+                     <div className='slider-vertical'>
+                         <Slider
+                             min={0}
+                             max={10}
+                             value={Slidervalue}
+                             orientation={'vertical'}
+                             onChange={this.handleChangeSlider}
+                         />
+                     </div>
                  </div>
                  <audio ref="audioPlayer">
                      <source src="../../src/audioFiles/Linkin Park - In The End.mp3"/>

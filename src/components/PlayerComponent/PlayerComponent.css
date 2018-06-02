@@ -16,12 +16,13 @@
   margin: 0 5px;
   cursor: pointer; }
 
-.background-Icon > .marginFont:hover path:hover {
+.background-Icon > .marginFont:hover path:hover,
+.volume > .marginFont:hover path:hover {
   fill: yellow; }
 
 .progress {
   background: #FFC107;
-  width: 100%;
+  width: 90%;
   height: 18px;
   padding: 5px;
   cursor: pointer; }
@@ -30,5 +31,16 @@
   width: 10px;
   height: 18px;
   background: steelblue; }
+
+.volume .slider-vertical {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  top: 8px;
+  left: 11px; }
+
+.volume:hover .slider-vertical {
+  opacity: 1;
+  z-index: 0; }
 
 /*# sourceMappingURL=PlayerComponent.css.map */

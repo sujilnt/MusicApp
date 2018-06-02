@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import styles from "./MusicPlayerComponent.css";
+
 class MusicPlayerComponent extends Component {
     constructor(props, context) {
         super(props, context);
