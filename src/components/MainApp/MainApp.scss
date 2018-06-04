@@ -1,6 +1,29 @@
 .mainContainer{
-  height:100%;
-  .h1style{
+   display:flex;
+   flex-direction:column;
+   flex-wrap:wrap;
 
-  }
+   .seachContainer{
+      height: 100%;
+      width: 50%;
+      margin: 9px 0;
+      border: 3px solid black;
+      border-radius: 4px;
+      overflow: hidden;
+   }
+   .Listing{
+      display:flex;
+      background: red;
+      flex-wrap:wrap;
+   }
+   .listingArtistName{
+       border:1px solid black;
+   }
+   .listingTopTen{
+      border:1px solid black;
+   }
 }
+
+
+
+

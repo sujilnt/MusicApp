@@ -13,7 +13,7 @@ then
   if [ $component_Type == "stateless" ];
   then
    echo "creating stateless React component !!"
-  cat > $components_Directory/$component_Name.js <<__EOF
+  cat > $components_Directory/$component_Name.jsx <<__EOF
 import React, { Component } from 'react';
 import styles from "./$component_Name.scss";
 const FUNCTION_NAME = (props) => <div className="container">{props.children}</div>;
@@ -22,7 +22,7 @@ __EOF
   echo "stateless react code created !!"
   else
   echo "creating stateful React component !!"
-  cat > $components_Directory/$component_Name.js <<__EOF
+  cat > $components_Directory/$component_Name.jsx <<__EOF
 import React, {Component} from "react";
 import styles from "./$component_Name.scss";
 class $component_Name extends Component {
@@ -33,7 +33,7 @@ class $component_Name extends Component {
             name: "$component_Name"
         };
         console.log("%c $ComponentName Component -> Init ", "background:red; color: white");
-        }
+   }
    render() {
      console.log("%c $ComponentName Component -> Render ", "background:black; color: pink");
      return (

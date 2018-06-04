@@ -14,9 +14,9 @@ import getTopTenSongList from './API/getTopTenSongList.js';
 import UkTrendingSongs from './API/getUkTrendingSong.js';
 
 console.log(datasong);
-datasong("Linkin park");
-getTopTenSongList("Linkin park");
-UkTrendingSongs();
+//datasong("Linkin park");
+//getTopTenSongList("Linkin park");
+//UkTrendingSongs();
 
 
 fontawesome.library.add(brands, faPlayCircle,faFastForward,faPauseCircle,faVolumeDown);

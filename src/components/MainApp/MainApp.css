@@ -1,4 +1,21 @@
 .mainContainer {
-  height: 100%; }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+  .mainContainer .seachContainer {
+    height: 100%;
+    width: 50%;
+    margin: 9px 0;
+    border: 3px solid black;
+    border-radius: 4px;
+    overflow: hidden; }
+  .mainContainer .Listing {
+    display: flex;
+    background: red;
+    flex-wrap: wrap; }
+  .mainContainer .listingArtistName {
+    border: 1px solid black; }
+  .mainContainer .listingTopTen {
+    border: 1px solid black; }
 
 /*# sourceMappingURL=MainApp.css.map */
