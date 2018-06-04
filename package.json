@@ -15,8 +15,10 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.1",
@@ -39,6 +41,10 @@
     "@fortawesome/fontawesome-free-brands": "^5.0.13",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/react-fontawesome": "^0.0.20",
+    "@opuscapita/react-searchbar": "^1.0.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "prop-types": "^15.6.1",
     "react-rangeslider": "^2.2.0"
   }
 }

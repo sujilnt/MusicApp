@@ -29,7 +29,7 @@ config.module.rules = [{
     exclude: exclude,
     use: 'babel-loader',
 }, {
-    test: /\.(scss)$/,
+    test: /\.(scss| sass)$/,
     use: extract({
         use: 'css-loader!postcss-loader!sass-loader'
     }),
