@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import styles from "./TrackNameUI.scss";
 import PropTypes from "prop-types";
+import AudioFile from "../AudioFiles/AudioFiles.jsx";
 class TrackNameUI extends Component {
     constructor(props, context) {
         super(props, context);
@@ -23,10 +24,20 @@ class TrackNameUI extends Component {
             loading:false
         }
    }
-   renderfile(songData=['error']){
+   renderfile(songData){
         let songDataArr=[];
-       songData.forEach((song)=>{
-            songDataArr.push(song.strRateYourMusicID || "null");
+       songData.forEach((song,i)=>{
+           let keyId= `song.isrc${i}`
+            songDataArr.push(
+                <AudioFile
+                    key={keyId}
+                    fileData={song}
+                    fileId={song.albumId}
+                    fileName={song.albumName}
+                    fileNameArtist={song.artistName}
+                    fileNameUrl={song.previewURL}
+                />
+            );
         });
         return songDataArr;
     }
@@ -34,11 +45,13 @@ class TrackNameUI extends Component {
        console.log("%c  TrackComponent -> Render ", "background:black; color: pink");
       const {songData,loading}=this.state;
       console.log("songlength......",songData.length, typeof(songData),songData);
-      if(!loading){
+      if(!loading && songData.length > 1 ){
           return (
               <div className="container">
-                  <div>Album Name</div>
-                  <div>{this.renderfile(songData.album)}</div>
+                  <div className="headerHeading">Top Tracks List </div>
+                  <div>
+                      {this.renderfile(songData)}
+                  </div>
               </div>
           );
       } else {

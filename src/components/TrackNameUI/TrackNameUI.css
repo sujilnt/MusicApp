@@ -1,4 +1,9 @@
 .container {
   position: relative; }
+  .container .headerHeading {
+    font-family: "Questrial", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    padding: 35px 0 0 0; }
 
 /*# sourceMappingURL=TrackNameUI.css.map */

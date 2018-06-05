@@ -24,6 +24,7 @@ __EOF
   echo "creating stateful React component !!"
   cat > $components_Directory/$component_Name.jsx <<__EOF
 import React, {Component} from "react";
+import PropTypes from "prop-types";
 import styles from "./$component_Name.scss";
 class $component_Name extends Component {
     constructor(props, context) {

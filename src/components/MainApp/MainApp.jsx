@@ -7,9 +7,12 @@ import "../commonCssStyles/browserReset.scss";
 import "../commonCssStyles/commonBootstrap.scss";
 import styles from "./MainApp.scss";
 
-const clientid = "vkTmQJneF9XZfRk8hdy9";
-const clientSecretApiKey = "hZybsTVtx0ROPedGGXAOI6bwumH5ORtq8IUGJI1K";
-
+let TopTrack = "https://api.napster.com/v2.2/tracks/top";
+const authObj={
+    headers:{
+        apikey:  "YWNlNDU2ZWYtNGI3My00YWEwLTg2ZjAtNTljMDE5NjNmZmI0"
+    }
+};
 class MainApp extends Component {
     constructor(props, context) {
         super(props, context);
@@ -27,15 +30,11 @@ class MainApp extends Component {
         this.Exportdata(e);
     }
     async Exportdata(albumName){
-        if(albumName === undefined){
-            albumName="coldplay";
-        }
-        let url =`http://www.theaudiodb.com/api/v1/json/195003/searchalbum.php?s=${albumName}`;
-        const response= await fetch(url);
+        const response= await fetch(TopTrack,authObj);
         const responseData = await response.json();
         console.log("responseData......", responseData)
         this.setState({
-            trackNamesObj: responseData,
+            trackNamesObj: responseData.tracks,
             searchValue: albumName
         });
     }

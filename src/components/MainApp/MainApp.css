@@ -1,7 +1,8 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  overflow: hidden; }
   .mainContainer .seachContainer {
     height: 100%;
     width: 50%;
@@ -14,8 +15,13 @@
     background: red;
     flex-wrap: wrap; }
   .mainContainer .listingArtistName {
-    border: 1px solid black; }
+    border: 1px solid black;
+    background: linear-gradient(217deg, rgba(242, 157, 171, 0.9), rgba(242, 157, 171, 0) 50%), linear-gradient(107deg, rgba(221, 137, 158, 0.9), rgba(221, 137, 158, 0) 70%), linear-gradient(336deg, rgba(242, 205, 193, 0.9), rgba(242, 205, 193, 0) 60%); }
   .mainContainer .listingTopTen {
     border: 1px solid black; }
+
+.listingArtistName,
+.listingTopTen {
+  width: 50%; }
 
 /*# sourceMappingURL=MainApp.css.map */
