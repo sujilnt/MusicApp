@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Player from "../PlayerComponent/PlayerComponent.jsx";
 import TrackNameUI from "../TrackNameUI/TrackNameUI.jsx";
 import SearchBar ,{searchbar}  from '@opuscapita/react-searchbar';
-import dddddd from '../../API/getUKTrendingSong.js';
 import "../commonCssStyles/browserReset.scss";
 import "../commonCssStyles/commonBootstrap.scss";
 import styles from "./MainApp.scss";
@@ -19,6 +18,7 @@ class MainApp extends Component {
         this.pageTitle = "MainApp";
         this.handleSearch=this.handleSearch.bind(this);
         this.Exportdata=this.Exportdata.bind(this);
+        this.SearchData=this.SearchData.bind(this);
         this.state = {
             name: "MainApp",
             searchValue: "",
@@ -27,8 +27,16 @@ class MainApp extends Component {
         console.log("%c  Component -> Init ", "background:red; color: white");
     }
     handleSearch(input){
-        dddddd(input);
-        this.Exportdata(e);
+        this.SearchData(input);
+    }
+    async SearchData(keyword){
+        let url = `http://api.napster.com/v2.2/search?query=${keyword}`;
+        const response= await fetch(url,authObj);
+        const responseData = await response.json();
+        console.log("responseData......onsearch", responseData);
+        this.setState({
+            trackNamesObj: responseData.search.data.tracks
+        });
     }
     componentDidMount(){
         this.Exportdata();
@@ -36,7 +44,6 @@ class MainApp extends Component {
     async Exportdata(){
         const response= await fetch(TopTrack,authObj);
         const responseData = await response.json();
-        console.log("responseData......", responseData)
         this.setState({
             trackNamesObj: responseData.tracks
         });
@@ -44,7 +51,6 @@ class MainApp extends Component {
     render() {
       const {searchValue,trackNamesObj}=this.state;
      console.log("%c  MainComponent -> Render ", "background:black; color: pink");
-     console.log("MainApp",this.state, this.props);
      return (
          <div className="mainContainer">
              <div className="seachContainer">
