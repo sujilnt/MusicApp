@@ -25,9 +25,8 @@ class TrackNameUI extends Component {
    }
    renderfile(songData=['error']){
         let songDataArr=[];
-       console.log(songData);
        songData.forEach((song)=>{
-            songDataArr.push(song.strRateYourMusicID);
+            songDataArr.push(song.strRateYourMusicID || "null");
         });
         return songDataArr;
     }

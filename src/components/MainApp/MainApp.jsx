@@ -6,6 +6,10 @@ import SearchBar ,{searchbar}  from '@opuscapita/react-searchbar';
 import "../commonCssStyles/browserReset.scss";
 import "../commonCssStyles/commonBootstrap.scss";
 import styles from "./MainApp.scss";
+
+const clientid = "vkTmQJneF9XZfRk8hdy9";
+const clientSecretApiKey = "hZybsTVtx0ROPedGGXAOI6bwumH5ORtq8IUGJI1K";
+
 class MainApp extends Component {
     constructor(props, context) {
         super(props, context);
@@ -15,7 +19,7 @@ class MainApp extends Component {
         this.state = {
             name: "MainApp",
             searchValue: "",
-            trackNamesObj: [' ']
+            trackNamesObj: {}
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
     }
