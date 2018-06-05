@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Player from "../PlayerComponent/PlayerComponent.jsx";
 import TrackNameUI from "../TrackNameUI/TrackNameUI.jsx";
 import SearchBar ,{searchbar}  from '@opuscapita/react-searchbar';
-//import datasong from '../../API/getSongsData.js';
+import dddddd from '../../API/getUKTrendingSong.js';
 import "../commonCssStyles/browserReset.scss";
 import "../commonCssStyles/commonBootstrap.scss";
 import styles from "./MainApp.scss";
@@ -26,16 +26,19 @@ class MainApp extends Component {
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
     }
-    handleSearch(e){
+    handleSearch(input){
+        dddddd(input);
         this.Exportdata(e);
     }
-    async Exportdata(albumName){
+    componentDidMount(){
+        this.Exportdata();
+    }
+    async Exportdata(){
         const response= await fetch(TopTrack,authObj);
         const responseData = await response.json();
         console.log("responseData......", responseData)
         this.setState({
-            trackNamesObj: responseData.tracks,
-            searchValue: albumName
+            trackNamesObj: responseData.tracks
         });
     }
     render() {
@@ -51,15 +54,14 @@ class MainApp extends Component {
                     searchPlaceHolder=" Type your favourite album ⏎ "
                 />
              </div>
+             <div>
+                 <Player/>
+             </div>
              <div className="Listing">
                  <div className="listingArtistName" >
                      <TrackNameUI trackNames={trackNamesObj} />
                  </div>
-                 <div className="listingTopTen" >
-                     1111111
-                 </div>
              </div>
-             <Player/>
          </div>
      );
    }

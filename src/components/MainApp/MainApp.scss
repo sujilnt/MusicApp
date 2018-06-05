@@ -1,36 +1,1 @@
-.mainContainer{
-   display:flex;
-   flex-direction:column;
-   flex-wrap:wrap;
-   overflow:hidden;
-
-   .seachContainer{
-      height: 100%;
-      width: 50%;
-      margin: 9px 0;
-      border: 3px solid black;
-      border-radius: 4px;
-      overflow: hidden;
-   }
-   .Listing{
-      display:flex;
-      background: red;
-      flex-wrap:wrap;
-
-   }
-   .listingArtistName{
-       border:1px solid black;
-      background: linear-gradient(217deg, rgba(242, 157, 171, 0.9), rgba(242, 157, 171, 0) 50%), linear-gradient(107deg, rgba(221, 137, 158, 0.9), rgba(221, 137, 158, 0) 70%), linear-gradient(336deg, rgba(242, 205, 193, 0.9), rgba(242, 205, 193, 0) 60%);
-   }
-   .listingTopTen{
-      border:1px solid black;
-   }
-}
-
-
-
-.listingArtistName,
-.listingTopTen{
-   width:50%;
-}
-
+.mainContainer{   display:flex;   flex-direction:column;   flex-wrap:wrap;   overflow:hidden;   .seachContainer{      width: 50%;      margin: 9px 0;      border: 3px solid black;      border-radius: 4px;      overflow: hidden;   }   .Listing{      display:flex;      flex-wrap:wrap;      height:100%;   }   .listingArtistName{       border:1px solid black;      background: linear-gradient(217deg, rgba(242, 157, 171, 0.9), rgba(242, 157, 171, 0) 50%), linear-gradient(107deg, rgba(221, 137, 158, 0.9), rgba(221, 137, 158, 0) 70%), linear-gradient(336deg, rgba(242, 205, 193, 0.9), rgba(242, 205, 193, 0) 60%);      width:100%;      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);      margin: 2px;   }   .listingTopTen{      border:1px solid black;   }}

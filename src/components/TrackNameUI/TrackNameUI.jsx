@@ -49,7 +49,7 @@ class TrackNameUI extends Component {
           return (
               <div className="container">
                   <div className="headerHeading">Top Tracks List </div>
-                  <div>
+                  <div className="FileContainer">
                       {this.renderfile(songData)}
                   </div>
               </div>

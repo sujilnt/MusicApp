@@ -19,7 +19,7 @@ class AudioFiles extends Component {
      const {fileData,fileId,fileName,fileNameArtist,fileNameUrl}=this.props;
      let imageUrl =`http://direct.rhapsody.com/imageserver/v2/albums/${fileId}/images/300x300.jpg`;
      return (
-         <div className="container" >
+         <div className="AudioFilecontainer" >
              <div className="card-container" onClick={this.playmusic}>
                  <div className="card2">
                      <div className="front face">
