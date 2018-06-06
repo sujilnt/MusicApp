@@ -11,7 +11,7 @@ class TrackNameUI extends Component {
             name: "TrackNameUI",
             songData: " ",
             loading: true,
-            headerText: "Top Tracks List "
+            headerText: ""
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
    }
@@ -46,11 +46,17 @@ class TrackNameUI extends Component {
    render() {
        console.log("%c  TrackComponent -> Render ", "background:black; color: pink");
       const {songData,loading,headerText}=this.state;
+       let headertextvar=headerText;
+       if(headerText){
+           headertextvar = headerText +" Album Tracks";
+       } else{
+           headertextvar= "Top Album Tracks List ";
+       }
       console.log("songlength......",songData.length, typeof(songData),songData);
       if(!loading && songData.length > 1 ){
           return (
               <div className="container">
-                  <div className="headerHeading">{headerText}</div>
+                  <div className="headerHeading">{headertextvar}</div>
                   <div className="FileContainer">
                       {this.renderfile(songData)}
                   </div>
