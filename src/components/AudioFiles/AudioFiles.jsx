@@ -12,10 +12,11 @@ class AudioFiles extends Component {
         console.log("%c  Component -> Init ", "background:red; color: white");
    }
     playmusic(e){
-        console.log("clicked me back side",e,this.props);
+        console.log("on prop state", this.props);
+        this.props.resendToparent(this.props);
     }
    render() {
-     console.log("%c  Component -> Render ", "background:black; color: pink");
+     console.log("%c  AudioComponent -> Render ", "background:black; color: pink");
      const {fileData,fileId,fileName,fileNameArtist,fileNameUrl}=this.props;
      let imageUrl =`http://direct.rhapsody.com/imageserver/v2/albums/${fileId}/images/300x300.jpg`;
      return (

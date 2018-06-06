@@ -1,17 +1,21 @@
 import React, {Component} from "react";
 import styles from "./TrackNameUI.scss";
 import PropTypes from "prop-types";
+import Player from "../PlayerComponent/PlayerComponent.jsx";
 import AudioFile from "../AudioFiles/AudioFiles.jsx";
 class TrackNameUI extends Component {
     constructor(props, context) {
         super(props, context);
         this.pageTitle = "TrackNameUI";
         this.renderfile=this.renderfile.bind(this);
+        this.updatefileUrl=this.updatefileUrl.bind(this);
         this.state = {
             name: "TrackNameUI",
             songData: " ",
             loading: true,
-            headerText: ""
+            headerText: "",
+            fileObj:{},
+            key: 0
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
    }
@@ -22,8 +26,9 @@ class TrackNameUI extends Component {
         }
         return {
             songData: nextProps.trackNames,
-            headerText:nextProps.headerTextprop,
-            loading:false
+            headerText: nextProps.headerTextprop,
+            loading: false,
+            key: nextProps.trackNames.fileId
         }
    }
    renderfile(songData){
@@ -38,14 +43,22 @@ class TrackNameUI extends Component {
                     fileName={song.albumName}
                     fileNameArtist={song.artistName}
                     fileNameUrl={song.previewURL}
+                    resendToparent={this.updatefileUrl}
                 />
             );
         });
         return songDataArr;
     }
+    updatefileUrl(obj){
+        this.setState({
+            fileObj: obj,
+            key: obj.fileId
+        });
+    }
    render() {
+        console.log("The console state", this.state.fileObj);
        console.log("%c  TrackComponent -> Render ", "background:black; color: pink");
-      const {songData,loading,headerText}=this.state;
+      const {songData,loading,headerText,fileObj,key}=this.state;
        let headertextvar=headerText;
        if(headerText){
            headertextvar = headerText +" Album Tracks";
@@ -56,6 +69,9 @@ class TrackNameUI extends Component {
       if(!loading && songData.length > 1 ){
           return (
               <div className="container">
+                  <div>
+                      <Player fileName={fileObj} key={key}/>
+                  </div>
                   <div className="headerHeading">{headertextvar}</div>
                   <div className="FileContainer">
                       {this.renderfile(songData)}

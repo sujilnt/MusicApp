@@ -17,8 +17,10 @@ class PlayerComponent extends PureComponent {
             progressBar: "0.0",
             progressManualUpdate: "true",
             Slidervalue: 5,
+            trackUrl: "http://listen.vo.llnwd.net/g3/1/1/7/1/1/1406911711.mp3",
+            autoplaying:false
         };
-        console.log("%c  Component -> Init ", "background:red; color: white");
+        console.log("%c  PlayerComponent -> Init ", "background:red; color: white");
     }
     componentDidMount() {
         let refaudioPlayer=this.refs.audioPlayer;
@@ -30,6 +32,18 @@ class PlayerComponent extends PureComponent {
             }
         });
     }
+    static getDerivedStateFromProps(nextProps,prevState){
+        if(nextProps.fileName.fileNameUrl === prevState.trackUrl || nextProps.fileName.fileNameUrl === undefined){
+            return null;
+        }
+        let newstate= {
+            autoplaying: true,
+            progressBar: "0.0",
+            trackUrl: nextProps.fileName.fileNameUrl
+        }
+        return newstate;
+    }
+
     handleChangeSlider (value){
         this.setState({
             Slidervalue: value
@@ -65,8 +79,9 @@ class PlayerComponent extends PureComponent {
         });
     }
    render() {
-     const {Slidervalue}= this.state ;
-     console.log("%c  Component -> Render ", "background:black; color: pink");
+     const {Slidervalue,trackUrl,autoplaying}= this.state ;
+     console.log("%c  PlayerComponent -> Render ", "background:black; color: pink");
+     console.log("the state... player Component",this.state.trackUrl,this.refs.audioPlayer);
      return (
          <div className="AudioContainer">
              <div className="controls" aria-hidden="true" >
@@ -94,9 +109,11 @@ class PlayerComponent extends PureComponent {
                          />
                      </div>
                  </div>
-                 <audio ref="audioPlayer">
-                     <source src="../../src/audioFiles/Linkin Park - In The End.mp3"/>
+                 <div autoplay={autoplaying ? true: false }>
+                 <audio ref="audioPlayer" key="1" controls="true" autoplay={autoplaying ? true: false } >
+                     <source  src={trackUrl} type="audio/mpeg" />
                  </audio>
+                 </div>
              </div>
          </div>
      );
@@ -111,6 +128,8 @@ function offsetLeft(ele){
     return leftpos;
 }
 
-PlayerComponent.defaultProps = {};
+PlayerComponent.defaultProps = {
+    fileName:{}
+};
 PlayerComponent.propTypes = {};
 export default PlayerComponent;

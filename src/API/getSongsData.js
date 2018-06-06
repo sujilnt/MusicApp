@@ -1,1 +1,0 @@
-async function Exportdata(albumName){    if(albumName === undefined){        albumName="coldplay";    }    let url =`http://www.theaudiodb.com/api/v1/json/195003/searchalbum.php?s=${albumName}`;    const response= await fetch(url);    return await response.json();}export default Exportdata;

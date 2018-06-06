@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Player from "../PlayerComponent/PlayerComponent.jsx";
+
 import TrackNameUI from "../TrackNameUI/TrackNameUI.jsx";
 import SearchBar ,{searchbar}  from '@opuscapita/react-searchbar';
 import "../commonCssStyles/browserReset.scss";
@@ -60,9 +60,6 @@ class MainApp extends Component {
                     value={searchValue}
                     searchPlaceHolder=" Type your favourite album ⏎ "
                 />
-             </div>
-             <div>
-                 <Player/>
              </div>
              <div className="Listing">
                  <div className="listingArtistName" >
