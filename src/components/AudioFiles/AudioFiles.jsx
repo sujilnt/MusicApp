@@ -9,10 +9,9 @@ class AudioFiles extends Component {
         this.state = {
             name: "AudioFiles"
         };
-        console.log("%c  Component -> Init ", "background:red; color: white");
+        console.log("%c  AudioComponent -> Init ", "background:red; color: white");
    }
     playmusic(e){
-        console.log("on prop state", this.props);
         this.props.resendToparent(this.props);
     }
    render() {

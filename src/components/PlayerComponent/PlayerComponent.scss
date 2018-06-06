@@ -5,12 +5,13 @@
   display:flex;
 }
 .controls{
-   background:tomato;
+   background:#f1f1f14f;
    height:50px;
    display: inline-flex;
    width: 100%;
    align-items: center;
    padding: 0 10px;
+  box-shadow: 1px 1px 5px 1px grey;
 }
 .marginFont{
    margin: 0 5px;
@@ -24,7 +25,7 @@
 }
 
 .progress{
-  background: #FFC107;
+  background: #2c4b94c2;
   width: 90%;
   height: 18px;
   padding: 5px;
@@ -33,7 +34,7 @@
 .bar {
   width:10px;
   height:18px;
-  background:steelblue;
+  background:#ff8d1a;
 }
 .volume .slider-vertical{
   position:absolute;

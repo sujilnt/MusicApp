@@ -11,6 +11,7 @@ class PlayerComponent extends PureComponent {
         this.playPauseToggele=this.playPauseToggele.bind(this);
         this.handleProgress=this.handleProgress.bind(this);
         this.handleChangeSlider=this.handleChangeSlider.bind(this);
+        this.eventProgress=this.eventProgress.bind(this);
         this.state = {
             name: "PlayerComponent",
             playModeIcon: "play-circle",
@@ -18,30 +19,39 @@ class PlayerComponent extends PureComponent {
             progressManualUpdate: "true",
             Slidervalue: 5,
             trackUrl: "http://listen.vo.llnwd.net/g3/1/1/7/1/1/1406911711.mp3",
-            autoplaying:false
+            changeTrack: false
         };
         console.log("%c  PlayerComponent -> Init ", "background:red; color: white");
     }
+
     componentDidMount() {
         let refaudioPlayer=this.refs.audioPlayer;
-        refaudioPlayer.addEventListener('timeupdate', (event) => {
-            if(this.state.progressManualUpdate){
-                this.setState({
-                    progressBar: (event.target.currentTime) / event.target.duration,
-                });
-            }
-        });
+        refaudioPlayer.addEventListener('timeupdate', this.eventProgress);
+    }
+    componentWillUnmount(){
+        let refaudioPlayer=this.refs.audioPlayer;
+        refaudioPlayer.removeEventListener('timeupdate', this.eventProgress);
+    }
+    eventProgress(event){
+        if(this.state.progressManualUpdate){
+            this.setState({
+                progressBar: (event.target.currentTime) / event.target.duration,
+            });
+        }
+        if(this.state.progressBar===1){
+            this.setState({
+                playModeIcon:"play-circle"
+            })
+        }
     }
     static getDerivedStateFromProps(nextProps,prevState){
         if(nextProps.fileName.fileNameUrl === prevState.trackUrl || nextProps.fileName.fileNameUrl === undefined){
             return null;
         }
-        let newstate= {
-            autoplaying: true,
+        return  {
             progressBar: "0.0",
             trackUrl: nextProps.fileName.fileNameUrl
         }
-        return newstate;
     }
 
     handleChangeSlider (value){
@@ -50,7 +60,6 @@ class PlayerComponent extends PureComponent {
         });
         console.log(value,this.state.Slidervalue/10, this.state.Slidervalue, typeof(value) );
         this.refs.audioPlayer.volume= this.state.Slidervalue/10;
-
     }
 
     playPauseToggele(e){
@@ -79,7 +88,7 @@ class PlayerComponent extends PureComponent {
         });
     }
    render() {
-     const {Slidervalue,trackUrl,autoplaying}= this.state ;
+     const {Slidervalue,trackUrl}= this.state ;
      console.log("%c  PlayerComponent -> Render ", "background:black; color: pink");
      console.log("the state... player Component",this.state.trackUrl,this.refs.audioPlayer);
      return (
@@ -109,11 +118,9 @@ class PlayerComponent extends PureComponent {
                          />
                      </div>
                  </div>
-                 <div autoplay={autoplaying ? true: false }>
-                 <audio ref="audioPlayer" key="1" controls="true" autoplay={autoplaying ? true: false } >
-                     <source  src={trackUrl} type="audio/mpeg" />
+                 <audio ref="audioPlayer"  >
+                     <source  src={trackUrl} />
                  </audio>
-                 </div>
              </div>
          </div>
      );

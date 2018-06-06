@@ -33,7 +33,6 @@ class MainApp extends Component {
         let url = `http://api.napster.com/v2.2/search?query=${keyword}`;
         const response= await fetch(url,authObj);
         const responseData = await response.json();
-        console.log("responseData......onsearch", responseData);
         this.setState({
             trackNamesObj: responseData.search.data.tracks,
             searchValue: keyword
