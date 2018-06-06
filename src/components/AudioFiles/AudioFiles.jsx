@@ -44,7 +44,7 @@ AudioFiles.defaultProps = {
     fileNameUrl: "FileNameurl.mp3"
 };
 AudioFiles.propTypes = {
-    fileData: PropTypes.array.isRequired,
+    fileData: PropTypes.object.isRequired,
     fileId: PropTypes.string,
     fileName: PropTypes.string,
     fileNameArtist: PropTypes.string,

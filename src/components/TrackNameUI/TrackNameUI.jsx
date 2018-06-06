@@ -10,7 +10,8 @@ class TrackNameUI extends Component {
         this.state = {
             name: "TrackNameUI",
             songData: " ",
-            loading: true
+            loading: true,
+            headerText: "Top Tracks List "
         };
         console.log("%c  Component -> Init ", "background:red; color: white");
    }
@@ -21,6 +22,7 @@ class TrackNameUI extends Component {
         }
         return {
             songData: nextProps.trackNames,
+            headerText:nextProps.headerTextprop,
             loading:false
         }
    }
@@ -43,12 +45,12 @@ class TrackNameUI extends Component {
     }
    render() {
        console.log("%c  TrackComponent -> Render ", "background:black; color: pink");
-      const {songData,loading}=this.state;
+      const {songData,loading,headerText}=this.state;
       console.log("songlength......",songData.length, typeof(songData),songData);
       if(!loading && songData.length > 1 ){
           return (
               <div className="container">
-                  <div className="headerHeading">Top Tracks List </div>
+                  <div className="headerHeading">{headerText}</div>
                   <div className="FileContainer">
                       {this.renderfile(songData)}
                   </div>
@@ -61,9 +63,11 @@ class TrackNameUI extends Component {
    }
 }
 TrackNameUI.defaultProps = {
-    trackNames:{}
+    trackNames:{},
+    headerTextprop: "Top Tracks List "
 };
 TrackNameUI.propTypes = {
-    trackNames: PropTypes.object.isRequired
+    trackNames: PropTypes.any.isRequired,
+    headerTextprop: PropTypes.string.isRequired
 };
 export default TrackNameUI;

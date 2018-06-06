@@ -35,7 +35,8 @@ class MainApp extends Component {
         const responseData = await response.json();
         console.log("responseData......onsearch", responseData);
         this.setState({
-            trackNamesObj: responseData.search.data.tracks
+            trackNamesObj: responseData.search.data.tracks,
+            searchValue: keyword
         });
     }
     componentDidMount(){
@@ -65,7 +66,7 @@ class MainApp extends Component {
              </div>
              <div className="Listing">
                  <div className="listingArtistName" >
-                     <TrackNameUI trackNames={trackNamesObj} />
+                     <TrackNameUI trackNames={trackNamesObj} headerTextprop={searchValue} />
                  </div>
              </div>
          </div>
