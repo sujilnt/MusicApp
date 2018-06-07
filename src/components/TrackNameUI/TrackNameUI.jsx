@@ -21,7 +21,6 @@ class TrackNameUI extends Component {
         console.log("%c  Component -> Init ", "background:red; color: white");
    }
    static getDerivedStateFromProps(nextProps,prevState){
-       console.log("next.props",nextProps.trackNames);
         if(nextProps.trackNames=== prevState.songData){
             return null;
         }
@@ -57,7 +56,6 @@ class TrackNameUI extends Component {
         });
     }
    render() {
-        console.log("The console state", this.state.fileObj);
        console.log("%c  TrackComponent -> Render ", "background:black; color: pink");
       const {songData,loading,headerText,fileObj,key}=this.state;
        let headertextvar=headerText;
@@ -66,7 +64,7 @@ class TrackNameUI extends Component {
        } else{
            headertextvar= "Top Album Tracks List ";
        }
-      console.log("songlength......",songData.length, typeof(songData),songData);
+
       if(!loading && songData.length > 1 ){
           return (
               <div className="container">

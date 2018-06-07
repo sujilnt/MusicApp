@@ -75,7 +75,6 @@ class PlayerComponent extends PureComponent {
         this.setState({
             Slidervalue: value
         });
-        console.log(value,this.state.Slidervalue/10, this.state.Slidervalue, typeof(value) );
         this.refs.audioPlayer.volume= this.state.Slidervalue/10;
     }
 
@@ -107,7 +106,6 @@ class PlayerComponent extends PureComponent {
    render() {
      const {Slidervalue,trackUrl,songName}= this.state ;
      console.log("%c  PlayerComponent -> Render ", "background:black; color: pink");
-     console.log("the state... player Component",this.state.trackUrl,this.refs.audioPlayer);
      return (
          <div className="AudioContainer">
              <div className="controls" aria-hidden="true" >
