@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import styles from "./TrackNameUI.scss";
 import PropTypes from "prop-types";
 import Player from "../PlayerComponent/PlayerComponent.jsx";
+import MusicLoader from "../MusicLoader/MusicLoader.jsx";
 import AudioFile from "../AudioFiles/AudioFiles.jsx";
 class TrackNameUI extends Component {
     constructor(props, context) {
@@ -77,7 +78,7 @@ class TrackNameUI extends Component {
               </div>
           );
       } else {
-          return (<div> loading .....</div>);
+          return (<div className="setLoader"><MusicLoader/></div>);
       }
 
    }
