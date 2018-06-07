@@ -4,10 +4,8 @@
   flex-wrap: wrap;
   overflow: hidden; }
   .mainContainer .seachContainer {
-    width: 50%;
+    width: 100%;
     margin: 9px 0;
-    border: 3px solid black;
-    border-radius: 4px;
     overflow: hidden; }
   .mainContainer .Listing {
     display: flex;
@@ -20,5 +18,8 @@
     margin: 2px; }
   .mainContainer .listingTopTen {
     border: 1px solid black; }
+
+.oc-search-bar input[type="search"] {
+  text-align: center; }
 
 /*# sourceMappingURL=MainApp.css.map */

@@ -58,7 +58,7 @@ class MainApp extends Component {
                 <SearchBar
                     onSearch={this.handleSearch}
                     value={searchValue}
-                    searchPlaceHolder=" Type your favourite album ⏎ "
+                    searchPlaceHolder=" Type your favourite artist name here and ⏎ "
                 />
              </div>
              <div className="Listing">
