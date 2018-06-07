@@ -19,6 +19,7 @@ class PlayerComponent extends PureComponent {
             progressManualUpdate: "true",
             Slidervalue: 5,
             trackUrl: "http://listen.vo.llnwd.net/g3/1/1/7/1/1/1406911711.mp3",
+            songName: "beerbongs & bentleys",
             changeTrack: false
         };
         console.log("%c  PlayerComponent -> Init ", "background:red; color: white");
@@ -65,7 +66,9 @@ class PlayerComponent extends PureComponent {
         return  {
             progressBar: "0.0",
             trackUrl: nextProps.fileName.fileNameUrl,
-            changeTrack: true
+            songName:nextProps.fileName.fileName,
+            changeTrack: true,
+            localStoredSong:nextProps.fileName
         }
     }
 
@@ -103,21 +106,16 @@ class PlayerComponent extends PureComponent {
         });
     }
    render() {
-     const {Slidervalue,trackUrl}= this.state ;
+     const {Slidervalue,trackUrl,songName}= this.state ;
      console.log("%c  PlayerComponent -> Render ", "background:black; color: pink");
      console.log("the state... player Component",this.state.trackUrl,this.refs.audioPlayer);
      return (
          <div className="AudioContainer">
              <div className="controls" aria-hidden="true" >
-                 <div className="background-Icon" aria-hidden="true">
-                     <FontAwesomeIcon icon="fast-forward" size="2x" rotation={180} className="marginFont" />
-                 </div>
                  <div className="background-Icon"  refs="plays" onClick={this.playPauseToggele} ref="plays" aria-hidden="true">
                     <FontAwesomeIcon icon={this.state.playModeIcon}  size="2x" className="marginFont" />
                  </div>
-                 <div className="background-Icon" aria-hidden="true">
-                    <FontAwesomeIcon icon="fast-forward" size="2x" className="marginFont" aria-hidden="true" />
-                 </div>
+                 <div className="songNamee">{songName}</div>
                  <div className="progress" onClick={this.handleProgress} ref={(ref) => { this.progressBar = ref}} aria-hidden="true">
                      <div className="bar"  style={{width: (this.state.progressBar*100)+"%"}} aria-hidden="true"></div>
                  </div>

@@ -13,6 +13,7 @@ class AudioFiles extends Component {
    }
     playmusic(e){
         this.props.resendToparent(this.props);
+        console.log("audio test",this.props);
     }
    render() {
      console.log("%c  AudioComponent -> Render ", "background:black; color: pink");

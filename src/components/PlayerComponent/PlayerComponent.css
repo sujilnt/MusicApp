@@ -47,4 +47,9 @@
 .rangeslider-vertical {
   height: 60px; }
 
+.songNamee {
+  margin: 0 15px;
+  text-transform: capitalize;
+  width: 20%; }
+
 /*# sourceMappingURL=PlayerComponent.css.map */
