@@ -12,10 +12,10 @@ http://localhost:8080/
 ![ezgif.com-video-to-gif.gif](https://github.com/sujilnt/MusicApp/blob/master/ezgif.com-video-to-gif.gif)
 
 
-# Basic Libraries used , 
+# Basic Libraries used 
 - `Babel env ` , `webpack 3`, `Scss to css`,`Html`, `Images , Automated Script to create stateless and statefull components, Reactv16`
 
-#Api Used
+# Api Used
 `Fetch() , songApi -> https://developer.napster.com `
 
 
