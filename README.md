@@ -13,11 +13,10 @@ http://localhost:8080/
 
 
 # Basic Libraries used , 
-- `Babel env ` , `webpack 3`, `Scss to css`,`Html`, `Images , 
-Automated Script to create stateless and statefull components, Reactv16
-https://developer.napster.com
+- `Babel env ` , `webpack 3`, `Scss to css`,`Html`, `Images , Automated Script to create stateless and statefull components, Reactv16`
 
-`
+#Api Used
+`Fetch() , songApi -> https://developer.napster.com `
 
 
 #
