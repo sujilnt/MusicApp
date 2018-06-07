@@ -30,6 +30,7 @@ img {
 .card2:hover {
    transform: rotateY(180deg);
    box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.3);
+   cursor:pointer;
 }
 .face {
    position: absolute;

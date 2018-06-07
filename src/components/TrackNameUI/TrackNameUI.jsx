@@ -34,7 +34,7 @@ class TrackNameUI extends Component {
    renderfile(songData){
         let songDataArr=[];
        songData.forEach((song,i)=>{
-           let keyId= `song.isrc${i}`
+           let keyId= `song.isrckey${i}`
             songDataArr.push(
                 <AudioFile
                     key={keyId}
@@ -69,9 +69,7 @@ class TrackNameUI extends Component {
       if(!loading && songData.length > 1 ){
           return (
               <div className="container">
-                  <div>
-                      <Player fileName={fileObj} key={key}/>
-                  </div>
+                  <Player fileName={fileObj} key={key}/>
                   <div className="headerHeading">{headertextvar}</div>
                   <div className="FileContainer">
                       {this.renderfile(songData)}

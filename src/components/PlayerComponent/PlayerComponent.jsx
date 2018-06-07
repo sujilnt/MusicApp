@@ -27,10 +27,24 @@ class PlayerComponent extends PureComponent {
     componentDidMount() {
         let refaudioPlayer=this.refs.audioPlayer;
         refaudioPlayer.addEventListener('timeupdate', this.eventProgress);
+        if(this.state.changeTrack){
+            this.refs.audioPlayer.play();
+            this.setState({
+                playModeIcon:"pause-circle",
+                changeTrack:false
+            });
+        }
     }
     componentWillUnmount(){
         let refaudioPlayer=this.refs.audioPlayer;
         refaudioPlayer.removeEventListener('timeupdate', this.eventProgress);
+        if(this.state.changeTrack){
+            this.refs.audioPlayer.play();
+            this.setState({
+                playModeIcon:"pause-circle",
+                changeTrack:false
+            });
+        }
     }
     eventProgress(event){
         if(this.state.progressManualUpdate){
@@ -41,7 +55,7 @@ class PlayerComponent extends PureComponent {
         if(this.state.progressBar===1){
             this.setState({
                 playModeIcon:"play-circle"
-            })
+            });
         }
     }
     static getDerivedStateFromProps(nextProps,prevState){
@@ -50,7 +64,8 @@ class PlayerComponent extends PureComponent {
         }
         return  {
             progressBar: "0.0",
-            trackUrl: nextProps.fileName.fileNameUrl
+            trackUrl: nextProps.fileName.fileNameUrl,
+            changeTrack: true
         }
     }
 

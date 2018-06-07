@@ -22,7 +22,7 @@
   fill: yellow; }
 
 .progress {
-  background: #2c4b94c2;
+  background: steelblue;
   width: 90%;
   height: 18px;
   padding: 5px;
@@ -31,7 +31,7 @@
 .bar {
   width: 10px;
   height: 18px;
-  background: #ff8d1a; }
+  background: red; }
 
 .volume .slider-vertical {
   position: absolute;
