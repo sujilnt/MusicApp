@@ -37,11 +37,14 @@
   position: absolute;
   z-index: -1;
   opacity: 0;
-  top: 8px;
-  left: 11px; }
+  top: -52px;
+  left: 16px; }
 
 .volume:hover .slider-vertical {
   opacity: 1;
   z-index: 0; }
+
+.rangeslider-vertical {
+  height: 60px; }
 
 /*# sourceMappingURL=PlayerComponent.css.map */
