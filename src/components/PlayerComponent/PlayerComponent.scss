@@ -21,12 +21,12 @@
 
 .background-Icon > .marginFont:hover path:hover,
 .volume > .marginFont:hover path:hover {
-   fill:yellow;
+   fill:#E91E63;
 }
 
 .progress{
   background: steelblue;
-  width: 90%;
+  width: 95%;
   height: 18px;
   padding: 5px;
   cursor:pointer;
@@ -43,8 +43,7 @@
   top: -52px;
   left: 16px;
 }
-.volume{
-}
+
 .volume:hover .slider-vertical{
   opacity:1;
   z-index:0;
@@ -53,7 +52,9 @@
   height:60px;
 }
 .songNamee{
-margin: 0 15px;
-text-transform: capitalize;
-width: 20%;
+  margin: 0 15px;
+  text-transform: capitalize;
+  width: 10%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

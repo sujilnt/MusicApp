@@ -70,7 +70,7 @@ class TrackNameUI extends Component {
       if(!loading && songData.length > 1 ){
           return (
               <div className="container">
-                  <Player fileName={fileObj} key={key}/>
+                  <Player fileName={fileObj} key={key} playList={songData}/>
                   <div className="headerHeading">{headertextvar}</div>
                   <div className="FileContainer">
                       {this.renderfile(songData)}

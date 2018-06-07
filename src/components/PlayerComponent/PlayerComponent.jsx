@@ -18,9 +18,9 @@ class PlayerComponent extends PureComponent {
             progressBar: "0.0",
             progressManualUpdate: "true",
             Slidervalue: 5,
-            trackUrl: "http://listen.vo.llnwd.net/g3/1/1/7/1/1/1406911711.mp3",
-            songName: "beerbongs & bentleys",
-            changeTrack: false
+            trackUrl: "../../src/audioFiles/Inception 2010.mp3",
+            songName: "In the End",
+            changeTrack: false,
         };
         console.log("%c  PlayerComponent -> Init ", "background:red; color: white");
     }
@@ -68,7 +68,6 @@ class PlayerComponent extends PureComponent {
             trackUrl: nextProps.fileName.fileNameUrl,
             songName:nextProps.fileName.fileName,
             changeTrack: true,
-            localStoredSong:nextProps.fileName
         }
     }
 

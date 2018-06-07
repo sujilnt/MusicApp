@@ -19,11 +19,11 @@
 
 .background-Icon > .marginFont:hover path:hover,
 .volume > .marginFont:hover path:hover {
-  fill: yellow; }
+  fill: #E91E63; }
 
 .progress {
   background: steelblue;
-  width: 90%;
+  width: 95%;
   height: 18px;
   padding: 5px;
   cursor: pointer; }
@@ -50,6 +50,8 @@
 .songNamee {
   margin: 0 15px;
   text-transform: capitalize;
-  width: 20%; }
+  width: 10%;
+  text-overflow: ellipsis;
+  overflow: hidden; }
 
 /*# sourceMappingURL=PlayerComponent.css.map */
