@@ -8,9 +8,11 @@ A React hobby project!
 - `yarn run dev`
 - `yarn build`
 
-  
+
 # server running 
 http://localhost:8080/
+
+![ezgif.com-gif-maker.gif](https://github.com/sujilnt/MusicApp/blob/master/ezgif.com-gif-maker.gif)
 
 #
 This is a general ES6,ES7 boilerplate that is used for builiding  React Js projects .  In this boilerplate all almost all the things are taken care like css,ES6 , images and Html . Best use for to create sample  frontend projects. Here is my js boilerplate , where React boilerplate is build on jsBoilerplate . 
