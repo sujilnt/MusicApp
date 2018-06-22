@@ -7,7 +7,7 @@ import "../commonCssStyles/browserReset.scss";
 import "../commonCssStyles/commonBootstrap.scss";
 import styles from "./MainApp.scss";
 
-let TopTrack = "https://api.napster.com/v2.2/tracks/top";
+let TopTrack = "//api.napster.com/v2.2/tracks/top";
 const authObj={
     headers:{
         apikey:  "YWNlNDU2ZWYtNGI3My00YWEwLTg2ZjAtNTljMDE5NjNmZmI0"
@@ -31,7 +31,7 @@ class MainApp extends Component {
         this.SearchData(input);
     }
     async SearchData(keyword){
-        let url = `https://api.napster.com/v2.2/search?query=${keyword}`;
+        let url = `//api.napster.com/v2.2/search?query=${keyword}`;
         const response= await fetch(url,authObj);
         const responseData = await response.json();
         this.setState({
