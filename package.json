@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "homepage":"https://sujilnt.github.io/MusicApp/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack --env.production",
+    "predeploy":"yarn build",
+    "deploy": "gh-pages -d dist",
     "dev": "yarn build && ./node_modules/.bin/webpack-dev-server"
   },
   "author": "Sujil Anto <sujilnt@gmail.com>",
@@ -34,6 +37,7 @@
     "react-dom": "^16.4.0",
     "sass-loader": "^6.0.5",
     "webpack": "v3.10.0",
+    "gh-pages": "^1.2.0",
     "webpack-dev-server": "^2.4.5"
   },
   "repository": "https://github.com/sujilnt/jsboilerplate.git",
