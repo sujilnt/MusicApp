@@ -1,33 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Questrial);html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline; }
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-  display: block; }
-
-body {
-  line-height: 1; }
-
-ol, ul {
-  list-style: none; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after {
-  content: "";
-  content: none; }
-
-q:before, q:after {
-  content: "";
-  content: none; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
 .form-control {
   display: block;
   width: 100%;
@@ -92,6 +62,36 @@ input {
 
 .btn {
   display: none; }
+@import url(https://fonts.googleapis.com/css?family=Questrial);html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 .rangeslider {
   margin: 20px 0;
   position: relative;
@@ -316,6 +316,78 @@ input {
 .setLoader {
   height: 100%;
   min-height: 600px; }
+.hand {
+  width: 25%;
+  min-width: 15em;
+  text-align: center;
+  margin: 20% auto;
+  padding: 0;
+  border-bottom: .25em solid #70e94e; }
+
+.thumb {
+  display: inline-block;
+  width: 1em;
+  height: 1.5em;
+  background-color: #bb357a;
+  margin: 1em .75em 0 .25em;
+  border-left: .5em solid #dc84b1;
+  border-radius: 25% 15% 15% 40%; }
+
+.finger {
+  display: inline-block;
+  width: 1.5em;
+  height: 2.5em;
+  background-color: #bb357a;
+  margin: 0 .25em;
+  border-bottom: .5em solid #dc84b1;
+  border-left: .25em solid #ab3070;
+  border-radius: 15% 15% 25% 25%;
+  -webkit-animation-name: tap;
+          animation-name: tap;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
+  .finger:nth-child(2) {
+    -webkit-animation-delay: .8s;
+            animation-delay: .8s; }
+  .finger:nth-child(3) {
+    -webkit-animation-delay: .7s;
+            animation-delay: .7s; }
+  .finger:nth-child(4) {
+    -webkit-animation-delay: .6s;
+            animation-delay: .6s; }
+  .finger:nth-child(5) {
+    -webkit-animation-delay: .5s;
+            animation-delay: .5s; }
+
+@-webkit-keyframes tap {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  60% {
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em); }
+  70% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes tap {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  60% {
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em); }
+  70% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
 .AudioFilecontainer {
   position: relative;
   display: -webkit-box;
@@ -441,75 +513,3 @@ img {
   width: 10%;
   text-overflow: ellipsis;
   overflow: hidden; }
-.hand {
-  width: 25%;
-  min-width: 15em;
-  text-align: center;
-  margin: 20% auto;
-  padding: 0;
-  border-bottom: .25em solid #70e94e; }
-
-.thumb {
-  display: inline-block;
-  width: 1em;
-  height: 1.5em;
-  background-color: #bb357a;
-  margin: 1em .75em 0 .25em;
-  border-left: .5em solid #dc84b1;
-  border-radius: 25% 15% 15% 40%; }
-
-.finger {
-  display: inline-block;
-  width: 1.5em;
-  height: 2.5em;
-  background-color: #bb357a;
-  margin: 0 .25em;
-  border-bottom: .5em solid #dc84b1;
-  border-left: .25em solid #ab3070;
-  border-radius: 15% 15% 25% 25%;
-  -webkit-animation-name: tap;
-          animation-name: tap;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite; }
-  .finger:nth-child(2) {
-    -webkit-animation-delay: .8s;
-            animation-delay: .8s; }
-  .finger:nth-child(3) {
-    -webkit-animation-delay: .7s;
-            animation-delay: .7s; }
-  .finger:nth-child(4) {
-    -webkit-animation-delay: .6s;
-            animation-delay: .6s; }
-  .finger:nth-child(5) {
-    -webkit-animation-delay: .5s;
-            animation-delay: .5s; }
-
-@-webkit-keyframes tap {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
-  60% {
-    -webkit-transform: translateY(-1em);
-            transform: translateY(-1em); }
-  70% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
-
-@keyframes tap {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
-  60% {
-    -webkit-transform: translateY(-1em);
-            transform: translateY(-1em); }
-  70% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
