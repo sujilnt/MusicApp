@@ -23736,7 +23736,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = (0, _create2.default)(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) _setPrototypeOf2.default ? (0, _setPrototypeOf2.default)(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TopTrack = "https://api.napster.com/v2.2/tracks/top";
+var TopTrack = "//api.napster.com/v2.2/tracks/top";
 var authObj = {
     headers: {
         apikey: "YWNlNDU2ZWYtNGI3My00YWEwLTg2ZjAtNTljMDE5NjNmZmI0"
@@ -23778,7 +23778,7 @@ var MainApp = function (_Component) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                url = "https://api.napster.com/v2.2/search?query=" + keyword;
+                                url = "//api.napster.com/v2.2/search?query=" + keyword;
                                 _context.next = 3;
                                 return fetch(url, authObj);
 
