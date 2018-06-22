@@ -23778,7 +23778,7 @@ var MainApp = function (_Component) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
-                                url = "http://api.napster.com/v2.2/search?query=" + keyword;
+                                url = "https://api.napster.com/v2.2/search?query=" + keyword;
                                 _context.next = 3;
                                 return fetch(url, authObj);
 
