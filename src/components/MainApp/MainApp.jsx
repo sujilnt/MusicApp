@@ -31,7 +31,7 @@ class MainApp extends Component {
         this.SearchData(input);
     }
     async SearchData(keyword){
-        let url = `http://api.napster.com/v2.2/search?query=${keyword}`;
+        let url = `https://api.napster.com/v2.2/search?query=${keyword}`;
         const response= await fetch(url,authObj);
         const responseData = await response.json();
         this.setState({
